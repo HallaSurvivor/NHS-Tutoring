@@ -1,0 +1,22 @@
+<!-- extend from base layout -->
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Change Subjects</h1>
+    <form action="" method="POST">
+        <table class="table">
+            <tr>
+                {% for field in form if field.type not in ["HiddenField", "CSRFTokenField"]  %}
+                <td>{{field.label}}</td>
+                {% endfor %}
+            </tr>
+            <tr>
+                {% for field in form if field.type not in ["HiddenField", "CSRFTokenField"]  %}
+                <td>{{field}}</td>
+                {% endfor %}
+            </tr>
+        </table>
+    {{ form.hidden_tag() }}
+    <p><input type="Submit" value="Submit"></p>
+    </form>
+{% endblock %}

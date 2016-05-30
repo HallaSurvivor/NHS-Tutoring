@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+        {% block content %}
+            <div class="jumbo">
+                <h3>Hello {{ session['username'] }}!</h3>
+                <h4>Your weekly schedule:</h4>
+                <h5><font color="green">Green</font> means you're free, <font color="red">Red</font> means you're busy</h5>
+                <div>
+                    <table class="table" style="border: 1px solid black; background-color: grey">
+                        <tr>
+                        {% for day in day_names %}
+                            <th>{{day}}</th>
+                        {% endfor %}
+                        </tr>
+                        <tr>
+                        {% with person = user.query_from_cookie() %}
+                            {% if person.get_calendar_1() and person.get_calendar_0() %}
+
+                                {% set i = 0 %}
+                                {% for day in day_names %}
+                                    <td>
+                                        <table>
+                                        {% for period in person.get_calendar_0().get_data_dict()[day] %}
+                                            {% if period in person.get_calendar_1().get_data_dict()[day] %}
+                                                {% set color = "green" %}
+                                            {% else %}
+                                                {% set color = "red" %}
+                                            {% endif %}
+
+                                            <tr style="background-color: {{color}}"><td>
+                                                {% set period_number = person.get_calendar_0().get_attrs_list()[i]|length - 1 %}
+                                                {% if period == 0 %}
+                                                    Before
+                                                {% elif period != period_number %}
+                                                    {{ period_names[period - 1] }}
+                                                {% else %}
+                                                    After
+                                                {% endif %}
+                                            </td></tr>
+
+                                        {% endfor %}
+                                        </table>
+                                    </td>
+                                    {% set i = i + 1 %}
+                                {% endfor %}
+                            {% else %}
+                                <td colspan="{{ day_names|length }}">Please register your free periods to see your schedule</td>
+                            {% endif %}
+                        {% endwith %}
+                        </tr>
+                    </table>
+                </div>
+                <br>
+                <h6>To manually set yourself as busy for a certain period, i.e. if you schedule a make up test with a teacher, just untick that period in your Free Period page.</h6>
+                <h6><i>Remember to retick it, though!</i></h6>
+            </div>
+        {% endblock %}

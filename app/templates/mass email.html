@@ -1,0 +1,33 @@
+<!-- extend from base layout -->
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Mass Email</h1>
+    <form action="" method="POST">
+        <table class="table">
+            <tr>
+                <td>Recipients</td>
+            </tr>
+            <tr>
+                {% for field in form if field.type not in ["HiddenField", "CSRFTokenField", "TextAreaField"]  %}
+                <td>{{field.label}}</td>
+                {% endfor %}
+            </tr>
+            <tr>
+                {% for field in form if field.type not in ["HiddenField", "CSRFTokenField", "TextAreaField"]  %}
+                <td>{{field}}</td>
+                {% endfor %}
+            </tr>
+            <tr>
+                <td>Body</td>
+            </tr>
+            <tr>
+                <td>
+                    {{form.body}}
+                </td>
+            </tr>
+        </table>
+    {{ form.hidden_tag() }}
+    <p><input type="Submit" value="Submit"></p>
+    </form>
+{% endblock %}

@@ -1,0 +1,25 @@
+        
+<!-- extends base layout -->
+{% extends "base.html" %}
+{% block content %}
+
+<!-- Page Heading -->
+<div class="row">
+    <div class="col-lg-12" style="background:#111">
+        <h1 class="page-header">
+            {% if 'username' in session %}
+                <p align="center"><font color="#E8ECEA">Hello, {{session['username']}}!</font>
+            {% else %}
+                <p align="center"><font color="#E8ECEA">Hello, Please Sign In!</font>
+            {% endif %}
+                    <p align="center"><small><font color="#E8ECEA">Welcome to Simsbury Tutoring!</font></small></p>
+                </p>
+                <p align="justify"><small><font color="#E8ECEA" size="+1">{{ bodytext|safe }}</font></small></p>
+          </h1>
+    </div>
+</div>
+
+<!-- /.row -->
+
+        
+{% endblock %}

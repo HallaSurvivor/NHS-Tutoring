@@ -1,0 +1,27 @@
+        
+<!-- extends base layout -->
+{% import "forms_macro.html" as forms %}
+{% extends "base.html" %}
+{% block content %}
+            <div class="container-fluid">
+
+                <!-- Page Heading -->
+                <div class="row">
+                  <div class="col-lg-12">
+                    <h1 class="page-header">Sign In</h1>
+                    <form action="" method="POST">
+                        {{forms.render(form)}}
+                        <p><input type="Submit" value="Log In"></p>
+                    </form>
+                    <a href="/password-reset">Forgot your password?</a>
+                  </div>
+                  </div>
+                <!-- /.row -->
+
+            </div>
+            <!-- /#page-wrapper -->
+
+       
+        <!-- /#wrapper -->
+        
+       {% endblock %}

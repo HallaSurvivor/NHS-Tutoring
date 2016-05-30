@@ -1,0 +1,76 @@
+<!-- Acts as a master schedule for admins to see -->
+{% extends "base.html" %}
+{% block content %}
+<div class="container-fluid">
+    <h2>Master Schedule</h2>
+    {% set i = 0 %}
+    {% for day in day_names %}
+    <div>
+        <table style="border: 1px solid black; background-color: grey;" width = 85%>
+            <tr><th align="center">{{day}}</th></tr>
+            <tr>
+                <td>
+                    <table>
+                        <tr>
+                            {% for number in range(period_lists[i] + 2) %}
+                            <th>
+                                {% if number == 0 %}
+                                    Before School
+                                {% elif number != period_lists[i] + 1 %}
+                                    {{ period_names[number - 1] }}
+                                {% else %}
+                                    After School
+                                {% endif %}
+                            </th>
+                            {% endfor %}
+                        </tr>
+                        <tr>
+                            {% with STP_list = stp.query.all() %}
+                            {% for number in range(period_lists[i] + 2) %}
+                            <td align="center" style="border-left: 2px solid black">
+                                <table>
+                                    <tr>
+                                        <th>Tutor</th>
+                                        <th>Student</th>
+                                        <th>Subject</th>
+                                    </tr>
+                                    {% for pair in STP_list %}
+                                        {% if pair.day == day %}
+                                        {% if pair.active %}
+
+                                            {% if pair.period == number + 1 %}
+                                                <tr>
+                                                    <td>{{pair.tutor}}</td>
+                                                    <td>{{pair.student}}</td>
+                                                    <td>{{pair.subject}}</td>
+                                                </tr>
+                                            {% endif %}
+
+                                            {% if number == period_lists[i] + 1 %}
+                                            {% if pair.period == -1 %}
+                                                <tr>
+                                                    <td>{{pair.tutor}}</td>
+                                                    <td>{{pair.student}}</td>
+                                                    <td>{{pair.subject}}</td>
+                                                </tr>
+                                            {% endif %}
+                                            {% endif %}
+
+                                        {% endif %}
+                                        {% endif %}
+                                    {% endfor %}
+                                </table>
+                            </td>
+                            {% endfor %}
+                            {% endwith %}
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+        <br>
+    </div>
+    {% set i = i + 1 %}
+    {% endfor %}
+</div>
+{% endblock %}

@@ -1,0 +1,11 @@
+<!-- extend from base layout -->
+{% import "forms_macro.html" as forms %}
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Request Tutor</h1>
+    <form action="" method="POST">
+    {{ forms.render(form) }}
+    <p><input type="Submit" value="Submit"></p>
+    </form>
+{% endblock %}
