@@ -83,7 +83,7 @@ That said, I can tell you what everything does, and how to run a basic setup wit
     For mac, google cronjob mac.
     For windows, google scheduled tasks.
 
-###step 4 (optional) - contact me a HallaSurvivor@gmail.com for any obscure problems you're encountering.
+###step 4 (optional) - contact me at HallaSurvivor@gmail.com for any obscure problems you're encountering.
   + if you don't change the default email, emailing won't work.
   + You should seriously read the instructions in config.py, and change anything you need to.
   + I am always here to help :)
