@@ -18,31 +18,31 @@ Long story short, I may or may not start working on this again, but if you find 
 
 ###Varied period structure:
 
-Different number of periods every day? works great<br>
-Have school saturday, not wednesday? got you covered
++ Different number of periods every day? works great
++ Have school saturday, not wednesday? got you covered
 
 ###Varied subject structure:
 
-Need a really math heavy curriculum? you can do that<br>
-Need to get rid of the history classes entirely? that's a thing<br>
-Want to add an engineering curriculum? also easy.
++ Need a really math heavy curriculum? you can do that.
++ Need to get rid of the history classes entirely? that's a thing.
++ Want to add an engineering curriculum? also easy.
 
 ###Email reminders:
-Tutors and students will be emailed on the day of their meeting regarding the other party, the subject, and the period<br>
-Administrators can send a mass email, filtered by which subjects a given person can tutor, from the admin menu
++ Tutors and students will be emailed on the day of their meeting regarding the other party, the subject, and the period
++ Administrators can send a mass email, filtered by which subjects a given person can tutor, from the admin menu
 
 ###Master Schedule:
-The Administrators can view the weeks tutoring assignments in a convenient layout.<br>
-Additionally, every time the master schedule page is accessed, a CSV file containing the same information is updated for external recordkeeping.<br>
++ The Administrators can view the weeks tutoring assignments in a convenient layout.
++ Additionally, every time the master schedule page is accessed, a CSV file containing the same information is updated for external recordkeeping.
 
 ###Tutoring Assignment:
-Tutors and students can select any periods during which they are free.<br>
-Tutors can select any subjects in which they feel confident tutoring others.<br>
-When a student requests a tutor, the tutors presented are those currently tutoring the fewest others. This prevents Aaron Aaronson from ending up tutoring everybody, and spreads the workload more equally.<br>
-If no tutors are available, the student is presented with an administrator's email address to try to find somebody willing to tutor.
++ Tutors and students can select any periods during which they are free.
++ Tutors can select any subjects in which they feel confident tutoring others.
++ When a student requests a tutor, the tutors presented are those currently tutoring the fewest others. This prevents Aaron Aaronson from ending up tutoring everybody, and spreads the workload more equally.
++ If no tutors are available, the student is presented with an administrator's email address to try to find somebody willing to tutor.
 
 ###Banners:
-Want to change the favicon or banner in the top left? go for it. /app/static/images
++ Want to change the favicon or banner in the top left? go for it. /app/static/images
 
 ---
 
@@ -52,14 +52,14 @@ Flask Website Hosting would be a good google search for much more in depth expla
 
 That said, I can tell you what everything does, and how to run a basic setup with ngrok.
 
-###step 0 - right click edit config.py and read the instructions thoroughly.<br>
-  step 0a: no seriously, read the instructions.<br>
-  step 0b: now change things to suit your school system based on the instructions.<br>
+###step 0 - right click edit config.py and read the instructions thoroughly.
+  + step 0a: no seriously, read the instructions.
+  + step 0b: now change things to suit your school system based on the instructions.
 
 ###step 1 - Use pip and requirements.txt to set up a python environment and run the conveniently named run.py
 
-  step 1a: open terminal or cmd and run "pip install -r requirements.txt" without the quotes to get the dependencies for NHS tutoring.
-  step 1b: go to your webbrowser of choice, type localhost:5000 into the address bar. You should be greeted with the NHS tutoring homepage.
+  + step 1a: open terminal or cmd and run "pip install -r requirements.txt" without the quotes to get the dependencies for NHS tutoring.
+  + step 1b: go to your webbrowser of choice, type localhost:5000 into the address bar. You should be greeted with the NHS tutoring homepage.
   
   NOTE: As of now, you can only see this website on YOUR computer. We'll fix this (albeit unsafely) in the next step.
 
@@ -68,25 +68,25 @@ That said, I can tell you what everything does, and how to run a basic setup wit
   This is insecure. It works, but it's not the best way of doing things.<br>
   For a more robust approach, I point you yet again towards googling Flask Website Hosting
 
-  step 2a: download ngrok
-  step 2b: open terminal or cmd in the root of the ngrok folder you downloaded
-  step 2c: type "ngrok 5000" without quotes into your terminal/cmd
-  step 2d: webbrowse to the disgusting website.ngrok.com you'll be presented with
-  step 2e: you should again be greeted with the NHS tutoring homepage, but now you can access it with that disgusting link from anywhere.
+  + step 2a: download ngrok
+  + step 2b: open terminal or cmd in the root of the ngrok folder you downloaded
+  + step 2c: type "ngrok 5000" without quotes into your terminal/cmd
+  + step 2d: webbrowse to the disgusting website.ngrok.com you'll be presented with
+  + step 2e: you should again be greeted with the NHS tutoring homepage, but now you can access it with that disgusting link from anywhere.
 
-###step 3 - set up some sort of timer service to run check_date.py every morning
+###step 3 - set up some sort of timer service to run check\_date.py every morning
 
   Depending on your systems, there are a variety of ways to do this. However, it IS important that this script be run every day.<br>
-  If you're unsure how to do this:<br>
+  If you're unsure how to do this:
 
     For linux, google cronjob linux.
     For mac, google cronjob mac.
     For windows, google scheduled tasks.
 
 ###step 4 (optional) - contact me a HallaSurvivor@gmail.com for any obscure problems you're encountering.
-  note: if you don't change the default email, emailing won't work.<br>
-  note2: You should seriously read the instructions in config.py, and change anything you need to.
-  note3: I am always here to help :)
+  + if you don't change the default email, emailing won't work.
+  + You should seriously read the instructions in config.py, and change anything you need to.
+  + I am always here to help :)
 
 ---
 
